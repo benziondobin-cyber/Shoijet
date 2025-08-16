@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:weightSum="7"
+		android:orientation="horizontal" >
+		   <Button 
+	        android:id="@+id/goBtn2"
+	        android:layout_width="0dp"
+	        android:layout_weight="2"
+	        android:layout_height="wrap_content"
+	        android:textSize="20dp"
+	        android:text="טעינה"
+	        android:background="@color/col4"
+	        />
+	   <TextView
+	        android:id="@+id/addressTV"      
+	        android:layout_height="37dp"
+	        android:background="@color/col1"
+	        android:textColor= "@color/col2"
+	     android:layout_width="0dp"
+	        android:layout_weight="3"
+	        android:text="טעינה"
+	        android:textSize="20dp"
+	        android:maxLines="1"
+	        android:layout_centerHorizontal="true"
+	        android:gravity="center"
+	        android:singleLine="true"
+	        android:scrollHorizontally="true" > 
+	        
+	
+	    </TextView>
+	    
+	    <Button 
+	        android:id="@+id/goBtn"
+	         android:layout_width="0dp"
+	        android:layout_weight="2"
+	        android:layout_height="wrap_content"
+	        android:textSize="20dp"
+	        android:background="@color/col3"
+	        android:text="רק רגע..."
+	        />
+	        
+	</LinearLayout>
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
