@@ -15,35 +15,29 @@ workflows:
           include: true
 
     # 3. Define la máquina de compilación
-    # mac_mini_m1 es la instancia recomendada para proyectos de Flutter.
     instance_type: mac_mini_m1
     
     # 4. Define los scripts de compilación
     environment:
       flutter: stable
-      # Si necesitas variables de entorno (por ejemplo, para claves API), las puedes definir aquí
-      # vars:
-      #   API_KEY: "tu_api_key_aqui"
 
     scripts:
-      - name: Configurar Flutter
+      - name: Configurar y Compilar
         script: |
-          # Este paso le dice a Codemagic que configure el SDK de Flutter.
+          # Cambia a la carpeta de tu proyecto.
+          # Reemplaza 'nombre_de_tu_carpeta' con el nombre de tu proyecto.
+          cd nombre_de_tu_carpeta
+          
+          # Configura el SDK de Flutter en el nuevo directorio.
           flutter sdk-path | xargs flutter_tools
 
-      - name: Instalar dependencias de Flutter
-        script: |
-          # Ahora, este comando funcionará sin problemas
+          # Instala las dependencias del proyecto.
           flutter packages get
-      
-      - name: Compilar la aplicación Android
-        script: |
-          # El comando para compilar la versión de lanzamiento de Android
+          
+          # Compila la aplicación Android.
           flutter build apk --release
 
     # 5. Define dónde guardar los artefactos (el archivo .apk)
     artifacts:
-      - app/build/outputs/flutter-apk/app-release.apk
-
-# La sección 'publishing' fue eliminada para evitar errores
-# ya que no es necesaria para una compilación básica.
+      # Asegúrate de que este path sea correcto desde la raíz del repositorio.
+      - shoijet/app/build/outputs/flutter-apk/app-release.apk
