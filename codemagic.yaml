@@ -26,7 +26,7 @@ workflows:
         script: |
           # Cambia a la carpeta de tu proyecto.
           # Reemplaza 'nombre_de_tu_carpeta' con el nombre de tu proyecto.
-          cd nombre_de_tu_carpeta
+          cd shoijet
           
           # Configura el SDK de Flutter en el nuevo directorio.
           flutter sdk-path | xargs flutter_tools
