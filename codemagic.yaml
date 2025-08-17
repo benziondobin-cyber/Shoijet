@@ -1,4 +1,4 @@
-# Este es un archivo de configuración de Codemagic YAML para aplicaciones Flutter.
+# Este es el archivo de configuración de Codemagic YAML para aplicaciones Flutter.
 # Puedes encontrar más información en la documentación oficial:
 # https://docs.codemagic.io/getting-started/codemagic-yaml/
 
@@ -15,8 +15,7 @@ workflows:
           include: true
 
     # 3. Define la máquina de compilación
-    # Este es el tipo de instancia corregido.
-    # linux_x2_medium ya no es un tipo de instancia válido.
+    # mac_mini_m1 es la instancia recomendada para proyectos de Flutter.
     instance_type: mac_mini_m1
     
     # 4. Define los scripts de compilación
@@ -27,13 +26,27 @@ workflows:
       #   API_KEY: "tu_api_key_aqui"
 
     scripts:
+      - name: Configurar Flutter
+        script: |
+          # Este paso le dice a Codemagic que configure el SDK de Flutter.
+          flutter sdk-path | xargs flutter_tools
+
       - name: Instalar dependencias de Flutter
         script: |
+          # Ahora, este comando funcionará sin problemas
           flutter packages get
       
       - name: Compilar la aplicación Android
         script: |
           # El comando para compilar la versión de lanzamiento de Android
+          flutter build apk --release
+
+    # 5. Define dónde guardar los artefactos (el archivo .apk)
+    artifacts:
+      - app/build/outputs/flutter-apk/app-release.apk
+
+# La sección 'publishing' fue eliminada para evitar errores
+# ya que no es necesaria para una compilación básica.
           flutter build apk --release
 
     # 5. Define dónde guardar los artefactos (el archivo .apk)
