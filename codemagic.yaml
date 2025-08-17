@@ -28,8 +28,7 @@ workflows:
           # Reemplaza 'nombre_de_tu_carpeta' con el nombre de tu proyecto.
           cd shoijet
           
-          # Configura el SDK de Flutter en el nuevo directorio.
-          flutter sdk-path | xargs flutter_tools
+      
 
           # Instala las dependencias del proyecto.
           flutter packages get
