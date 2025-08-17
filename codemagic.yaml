@@ -41,7 +41,7 @@ workflows:
       - app/build/outputs/flutter-apk/app-release.apk
 
     # 6. Define lo que quieres que pase después de la compilación
-    publishing:
+#    publishing:
       # Publicar en Firebase App Distribution (opcional)
       # firebase:
       #   # Puedes dejar el token vacío si lo tienes como una variable de entorno en Codemagic
