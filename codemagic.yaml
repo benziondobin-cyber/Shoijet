@@ -47,18 +47,3 @@ workflows:
 
 # La sección 'publishing' fue eliminada para evitar errores
 # ya que no es necesaria para una compilación básica.
-          flutter build apk --release
-
-    # 5. Define dónde guardar los artefactos (el archivo .apk)
-    artifacts:
-      - app/build/outputs/flutter-apk/app-release.apk
-
-    # 6. Define lo que quieres que pase después de la compilación
-#    publishing:
-      # Publicar en Firebase App Distribution (opcional)
-      # firebase:
-      #   # Puedes dejar el token vacío si lo tienes como una variable de entorno en Codemagic
-      #   firebase_app_distrib:
-      #     appId: 1:01234567890:android:abcdefgh
-      #     groups: "testers"
-      #     token: "tu_token_aqui"
