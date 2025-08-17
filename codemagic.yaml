@@ -20,17 +20,18 @@ workflows:
     # 4. Define los scripts de compilación
     environment:
       flutter: stable
+      # Define la ruta de tu proyecto usando la variable de entorno CM_BUILD_DIR
+      # Reemplaza 'nombre_de_tu_carpeta' con el nombre de tu proyecto real.
+      vars:
+        FLUTTER_PROJECT_PATH: "$CM_BUILD_DIR/shoijet"
 
     scripts:
-      - name: Configurar y Compilar
+      - name: Compilar la aplicación
         script: |
-          # Cambia a la carpeta de tu proyecto.
-          # Reemplaza 'nombre_de_tu_carpeta' con el nombre de tu proyecto.
-          cd shoijet
+          # Navega a la ruta del proyecto de forma segura.
+          cd $FLUTTER_PROJECT_PATH
           
-      
-
-          # Instala las dependencias del proyecto.
+          # Instala las dependencias.
           flutter packages get
           
           # Compila la aplicación Android.
@@ -38,5 +39,8 @@ workflows:
 
     # 5. Define dónde guardar los artefactos (el archivo .apk)
     artifacts:
-      # Asegúrate de que este path sea correcto desde la raíz del repositorio.
-      - shoijet/app/build/outputs/flutter-apk/app-release.apk
+      # Asegúrate de que este path sea correcto usando la variable de ruta.
+      - $FLUTTER_PROJECT_PATH/build/app/outputs/flutter-apk/app-release.apk
+
+# La sección 'publishing' fue eliminada para evitar errores
+# ya que no es necesaria para una compilación básica.
