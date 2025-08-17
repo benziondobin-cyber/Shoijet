@@ -15,7 +15,9 @@ workflows:
           include: true
 
     # 3. Define la máquina de compilación
-    instance_type: linux_x2_medium
+    # Este es el tipo de instancia corregido.
+    # linux_x2_medium ya no es un tipo de instancia válido.
+    instance_type: mac_mini_m1
     
     # 4. Define los scripts de compilación
     environment:
